@@ -15,7 +15,7 @@ class BaseModel():
 		"""
 
 		"""
-		if kwargs is not None and len(kwargs) is not 0:
+		if kwargs is not None and len(kwargs) != 0:
 			for key, value in kwargs.items():
 				if key != "__class__":
 					if key == "created_at" or key == "updated_at":
