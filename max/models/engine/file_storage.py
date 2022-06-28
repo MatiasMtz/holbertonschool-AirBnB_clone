@@ -4,8 +4,6 @@
 """
 
 import json
-import os
-from traceback import print_exc
 
 
 class FileStorage:
@@ -33,9 +31,8 @@ class FileStorage:
 		"""
 		obj_dict = {}
 		for key, value in FileStorage.__objects.items():
-			obj_dict[key] = FileStorage.__objects[key].to_dict()
-		
-		with open(FileStorage.__file_path, "w+", encoding="utf-8") as file:
+			obj_dict[key] = value.to_dict()
+		with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
 			json.dump(obj_dict, file)
 	
 	def reload(self):
@@ -43,11 +40,10 @@ class FileStorage:
 		
 		"""
 		try:
-			with open(FileStorage.__file_path, "r+", encoding="utf-8") as file:
+			with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
 				dict_obj = json.load(file)
-			for key, value in dict_obj.items():
-				print("AAAAAAAAAAAAAAAAAAAAAAAAAA")
-				FileStorage.__objects[key] = eval(value["__class__"])(**value)
+				for key, value in dict_obj.items():
+					FileStorage.__objects[key] = eval(value["__class__"])(**value)
 		except Exception:
 			pass
 		

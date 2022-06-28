@@ -49,11 +49,11 @@ class BaseModel():
 
 		"""
 
-		to_dict = {}
+		new_dict = {}
 		for key, value in self.__dict__.items():
 			if key == "created_at" or key == "updated_at":
 				value = value.isoformat()
-			to_dict[key] = value
-		to_dict["__class__"] = self.__class__.__name__
+			new_dict[key] = value
+		new_dict["__class__"] = self.__class__.__name__
 
-		return (to_dict)
+		return (new_dict)
