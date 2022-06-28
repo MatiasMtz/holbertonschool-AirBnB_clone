@@ -4,7 +4,7 @@
 """
 from uuid import uuid4
 from datetime import datetime
-from __init__ import storage
+from models import storage
 
 
 class BaseModel():
@@ -33,7 +33,7 @@ class BaseModel():
 
 		"""
 
-		class_name = type(self).__name__
+		class_name = self.__class__.__name__
 		return f"[{class_name}] ({self.id}) {self.__dict__}"
 
 	def save(self):
@@ -54,6 +54,6 @@ class BaseModel():
 			if key == "created_at" or key == "updated_at":
 				value = value.isoformat()
 			to_dict[key] = value
-		to_dict["__class__"] = type(self).__name__
+		to_dict["__class__"] = self.__class__.__name__
 
 		return (to_dict)
