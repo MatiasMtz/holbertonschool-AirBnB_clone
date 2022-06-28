@@ -22,14 +22,18 @@ class FileStorage:
 		
 		"""
 		key = f"{type(obj).__name__}.{obj.id}"
-		FileStorage.__objects[key] = obj.to_dict()
+		FileStorage.__objects[key] = obj
 
 	def save(self):
 		"""
 
 		"""
+		obj_dict = {}
+		for key, value in FileStorage.__objects.items():
+			obj_dict[key] = FileStorage.__objects[key].to_dict()
+		
 		with open(FileStorage.__file_path, "a", encoding="utf-8") as file:
-			json.dump(FileStorage.__objects, file)
+			json.dump(obj_dict, file)
 	
 	def reload(self):
 		"""
