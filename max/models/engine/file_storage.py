@@ -44,10 +44,3 @@ class FileStorage:
                     FileStorage.__objects[key] = eval(value["__class__"])(**value)
         except Exception:
             pass
-        """
-        if os.path.isfile(FileStorage.__file_path) is True:
-            with open(FileStorage.__file_path, 'r+', encoding='utf-8') as f:
-                obj = json.load(f)
-                for key, value in obj.items():
-                    FileStorage.__objects[key] = eval(value['__class__'])(**value)
-        """
