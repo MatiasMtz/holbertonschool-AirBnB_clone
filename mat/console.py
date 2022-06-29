@@ -152,13 +152,17 @@ class HBNBCommand(cmd.Cmd):
                         count += 1
                 print(count)
                 return
-            show = command.split("(")[0]
+            cmmd = command.split("(")[0]
             id = command.split("(")[1]
-            if show == "show" and id[-1] == ")":
+            if cmmd == "show" and id[-1] == ")":
                 id = id[:-1]
                 showArg = f"{cls_name} {id}"
                 self.do_show(showArg)
                 return
+            if cmmd == "destroy" and id[-1] == ")":
+                id = id[:-1]
+                showArg = f"{cls_name} {id}"
+                self.do_destroy(showArg)
         except Exception:
             pass
 
