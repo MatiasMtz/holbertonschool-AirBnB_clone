@@ -5,6 +5,7 @@
 
 import cmd
 import sys
+import shlex
 from models import storage
 from models.base_model import BaseModel
 
@@ -23,18 +24,18 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg=0):
         """Quit command to exit the program
         """
-        
+
         sys.exit(arg)
-    
+
     def do_EOF(self, arg):
         """
-        
+
         """
         return True
-    
+
     def emptyline(self):
         """
-        
+
         """
 
         pass
@@ -52,13 +53,13 @@ class HBNBCommand(cmd.Cmd):
             new = BaseModel()
             new.save()
             print (new.id)
-    
+
     def do_show(self, arg):
-        args = arg.split(" ")
+        
+        args = shlex.split(arg)
         if len(args) > 1:
             key = args[0] + "." + args[1]
-            print(key)
-        if args[0] == "":
+        if len(args) == 0:
             print ("** class name missing **")
         elif args[0] != "BaseModel":
             print ("** class doesn't exist **")
@@ -70,10 +71,11 @@ class HBNBCommand(cmd.Cmd):
             print (storage.all()[key])
 
     def do_destroy(self, arg):
-        args = arg.split(" ")
+        
+        args = shlex.split(arg)
         if len(args) > 1:
             key = args[0] + "." + args[1]
-        if args[0] == "":
+        if len(args) == 0:
             print ("** class name missing **")
         elif args[0] != "BaseModel":
             print ("** class doesn't exist **")
@@ -88,22 +90,25 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         """
-        args = arg.split(" ")
-        if args[0] != "BaseModel" and args[0] != "":
-            print ("** class doesn't exist **")
-        else:
-            inst_list = []
-            for key in storage.all():
-                inst_list.append(str(storage.all()[key]))
-            print(inst_list)
+        
+        args = shlex.split(arg)
+        if args:
+            if args[0] != "BaseModel":
+                print ("** class doesn't exist **")
+                return
+        inst_list = []
+        for key in storage.all():
+            inst_list.append(str(storage.all()[key]))
+        print(inst_list)
 
     def do_update(self, arg):
         """
         """
-        args = arg.split(" ")
+
+        args = shlex.split(arg)
         if len(args) > 1:
             key = args[0] + "." + args[1]
-        if args[0] == "":
+        if len(args) == 0:
             print ("** class name missing **")
         elif args[0] != "BaseModel":
             print ("** class doesn't exist **")
@@ -111,10 +116,12 @@ class HBNBCommand(cmd.Cmd):
             print ("** instance id missing **")
         elif key not in storage.all():
             print ("** no instance found **")
-        elif args[2] is None:
+        elif len(args) == 2:
             print ("** attribute name missing **")
-        elif args [3] is None:
+        elif len(args) == 3:
             print ("** value missing **")
+        setattr(storage.all()[key], args[2], args[3])
+        storage.all()[key].save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
