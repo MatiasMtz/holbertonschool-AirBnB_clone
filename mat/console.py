@@ -143,14 +143,22 @@ class HBNBCommand(cmd.Cmd):
             args = arg.split(".")
             cls_name = args[0]
             command = args[1]
-            if cls_name in classes:
-                if command == "all()":
-                    self.do_all(cls_name)
-                if command == "count()":
-                    for instances in storage.all():
-                        if instances.split(".")[0] == cls_name:
-                            count += 1
-                    print(count)
+            if command == "all()":
+                self.do_all(cls_name)
+                return
+            elif command == "count()":
+                for instances in storage.all():
+                    if instances.split(".")[0] == cls_name:
+                        count += 1
+                print(count)
+                return
+            show = command.split("(")[0]
+            id = command.split("(")[1]
+            if show == "show" and id[-1] == ")":
+                id = id[:-1]
+                showArg = f"{cls_name} {id}"
+                self.do_show(showArg)
+                return
         except Exception:
             pass
 
