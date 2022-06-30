@@ -75,7 +75,8 @@ ex.: (hbnb) create BaseModel
 References:
 
 | \<class> | BaseModel | User      | Place     | State     | City      | Amenity   | Review    | 
-| :-: | --- | --- | --- | --- | --- | --- |
+| :-: | --- | --- | --- | --- | --- | --- | --- |
+| hola |
 
 ## ***Examples***:
 ```
