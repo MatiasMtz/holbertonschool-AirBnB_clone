@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+Class place
 """
 
 from models.base_model import BaseModel
@@ -8,7 +8,7 @@ from models.base_model import BaseModel
 
 class Place(BaseModel):
     """
-
+    Class to represent the places
     """
 
     city_id = ""
