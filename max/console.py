@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-
+Class HBNBCommand
 """
 
 import cmd
@@ -15,15 +15,18 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+
 
 class HBNBCommand(cmd.Cmd):
     """
-
+    Entry point of the command interpreter
     """
 
     def __init__(self):
         """
+        Instanitation
         """
 
         cmd.Cmd.__init__(self)
@@ -36,77 +39,91 @@ class HBNBCommand(cmd.Cmd):
         sys.exit(arg)
 
     def do_EOF(self, arg):
+        """Terminates the program Usage: ctrl+D or writting EOF
         """
 
-        """
         return True
 
     def emptyline(self):
         """
-
+        Do nothing
         """
 
         pass
 
     def do_create(self, cls_name):
-        """
-        Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
+        """Creates a new instance of class and prints the id.
+
+Usage: create <class name>
         """
 
         if cls_name is None:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif cls_name not in classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         else:
             new = eval(cls_name)()
             new.save()
-            print (new.id)
+            print(new.id)
 
     def do_show(self, arg):
-        
+        """Prints the string representation of an instance\
+ based on the class name and id.
+
+Usage: show <class name> <id>
+        """
+
         args = shlex.split(arg)
         if len(args) > 1:
             key = args[0] + "." + args[1]
         if len(args) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif args[0] not in classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(args) == 1:
-            print ("** instance id missing **")
+            print("** instance id missing **")
         elif key not in storage.all():
-            print ("** no instance found **")
+            print("** no instance found **")
         else:
             print(storage.all()[key])
 
     def do_destroy(self, arg):
-        
+        """Deletes an instance based on the class name and id.
+
+Usage: destroy <class name> <id>
+        """
+
         args = shlex.split(arg)
         if len(args) > 1:
             key = args[0] + "." + args[1]
         if len(args) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif args[0] not in classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(args) == 1:
-            print ("** instance id missing **")
+            print("** instance id missing **")
         elif key not in storage.all():
-            print ("** no instance found **")
+            print("** no instance found **")
         else:
             del storage.all()[key]
             storage.save()
 
     def do_all(self, arg):
+        """Prints all string representation of all\
+ instances based or not on the class name.
+
+Usage: all <class name> - to print all instances of a class\
+ or all - to print all instances.
         """
-        """
-        
+
         args = shlex.split(arg)
         if args:
             if args[0] not in classes:
-                print ("** class doesn't exist **")
+                print("** class doesn't exist **")
             inst_list = []
             for key in storage.all():
-                cls = key.split(".")[0]
-                if cls == args[0]:
+                cls_name = key.split(".")[0]
+                if cls_name == args[0]:
                     inst_list.append(str(storage.all()[key]))
             print(inst_list)
             return
@@ -116,55 +133,64 @@ class HBNBCommand(cmd.Cmd):
         print(inst_list)
 
     def do_update(self, arg):
-        """
+        """Updates an instance based on the class name\
+ and id by adding or updating attribute.
+
+Usage: update <class name> <id> <attribute name> "<attribute value>"
         """
 
         args = shlex.split(arg)
         if len(args) > 1:
             key = args[0] + "." + args[1]
         if len(args) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif args[0] not in classes:
-            print ("** class doesn't exist **")
+            print("** class doesn't exist **")
         elif len(args) == 1:
-            print ("** instance id missing **")
+            print("** instance id missing **")
         elif key not in storage.all():
-            print ("** no instance found **")
+            print("** no instance found **")
         elif len(args) == 2:
-            print ("** attribute name missing **")
+            print("** attribute name missing **")
         elif len(args) == 3:
-            print ("** value missing **")
+            print("** value missing **")
         setattr(storage.all()[key], args[2], args[3])
         storage.all()[key].save()
-    
+
     def default(self, arg):
+        """
+        Implementation of:
+        <class name>.all() - to retrieve all instances of a class
+        <class name>.count() - to retrieve the number of instances of a class
+        <class name>.show(<id>) - to retrieve an instance based on its ID
+        <class name>.destroy(<id>) - to destroy an instance based on his ID
+        """
+
         count = 0
-        try:
-            args = arg.split(".")
-            cls_name = args[0]
-            command = args[1]
-            if command == "all()":
-                self.do_all(cls_name)
-                return
-            elif command == "count()":
-                for instances in storage.all():
-                    if instances.split(".")[0] == cls_name:
-                        count += 1
-                print(count)
-                return
-            cmmd = command.split("(")[0]
-            id = command.split("(")[1]
-            if cmmd == "show" and id[-1] == ")":
-                id = id[:-1]
-                showArg = f"{cls_name} {id}"
-                self.do_show(showArg)
-                return
-            if cmmd == "destroy" and id[-1] == ")":
-                id = id[:-1]
-                showArg = f"{cls_name} {id}"
-                self.do_destroy(showArg)
-        except Exception:
-            pass
+        args = arg.split(".")
+        cls_name = args[0]
+        command = args[1]
+        if command == "all()":
+            self.do_all(cls_name)
+            return
+        elif command == "count()":
+            for instances in storage.all():
+                if instances.split(".")[0] == cls_name:
+                    count += 1
+            print(count)
+            return
+        cmmd = command.split("(")[0]
+        id = command.split("(")[1]
+        if cmmd == "show" and id[-1] == ")":
+            id = id[:-1]
+            showArg = f"{cls_name} {id}"
+            self.do_show(showArg)
+            return
+        if cmmd == "destroy" and id[-1] == ")":
+            id = id[:-1]
+            showArg = f"{cls_name} {id}"
+            self.do_destroy(showArg)
+        print(f"*** Unknown syntax {arg}")
 
 
 if __name__ == '__main__':
