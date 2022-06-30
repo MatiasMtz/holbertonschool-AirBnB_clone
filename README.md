@@ -76,7 +76,7 @@ References:
 
 | \<class> | BaseModel | User      | Place     | State     | City      | Amenity   | Review    | 
 | :-: | --- | --- | --- | --- | --- | --- | --- |
-| hola |
+| Description |
 
 ## ***Examples***:
 ```
