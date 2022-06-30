@@ -74,7 +74,7 @@ ex.: (hbnb) create BaseModel
 
 References:
 
-| *<class>* | |
+| *<class>* | ‎ |
 | :-: | --- |
 | BaseModel | User      | Place     | State     | City      | Amenity   | Review    |
 
