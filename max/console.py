@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
 Usage: create <class name>
         """
 
-        if cls_name is None:
+        if cls_name == "":
             print("** class name missing **")
         elif cls_name not in classes:
             print("** class doesn't exist **")
@@ -154,8 +154,9 @@ Usage: update <class name> <id> <attribute name> "<attribute value>"
             print("** attribute name missing **")
         elif len(args) == 3:
             print("** value missing **")
-        setattr(storage.all()[key], args[2], args[3])
-        storage.all()[key].save()
+        else:
+            setattr(storage.all()[key], args[2], args[3])
+            storage.all()[key].save()
 
     def default(self, arg):
         """
@@ -167,30 +168,41 @@ Usage: update <class name> <id> <attribute name> "<attribute value>"
         """
 
         count = 0
-        args = arg.split(".")
-        cls_name = args[0]
-        command = args[1]
-        if command == "all()":
-            self.do_all(cls_name)
-            return
-        elif command == "count()":
-            for instances in storage.all():
-                if instances.split(".")[0] == cls_name:
-                    count += 1
-            print(count)
-            return
-        cmmd = command.split("(")[0]
-        id = command.split("(")[1]
-        if cmmd == "show" and id[-1] == ")":
-            id = id[:-1]
-            showArg = f"{cls_name} {id}"
-            self.do_show(showArg)
-            return
-        if cmmd == "destroy" and id[-1] == ")":
-            id = id[:-1]
-            showArg = f"{cls_name} {id}"
-            self.do_destroy(showArg)
-        print(f"*** Unknown syntax {arg}")
+
+        try:
+            args = arg.split(".")
+            cls_name = args[0]
+            command = args[1]
+            if command == "all()":
+                self.do_all(cls_name)
+                return
+            elif command == "count()":
+                for instances in storage.all():
+                    if instances.split(".")[0] == cls_name:
+                        count += 1
+                print(count)
+                return
+            cmmd = command.split("(")[0]
+            args = command.split("(")[1]
+            if cmmd == "show" and args[-1] == ")":
+                id = args[:-1]
+                showArg = f"{cls_name} {id}"
+                self.do_show(showArg)
+                return
+            if cmmd == "destroy" and args[-1] == ")":
+                id = args[:-1]
+                destroyArg = f"{cls_name} {id}"
+                self.do_destroy(destroyArg)
+                return
+            if cmmd == "update" and args[-1] == ")":
+                args = command.split("(")[1]
+                args = args.replace(",", "")
+                updateArg = f"{cls_name} {args[:-1]}"
+                self.do_update(updateArg)
+                return
+            print(f"*** Unknown syntax {arg}")
+        except Exception:
+            print(f"*** Unknown syntax {arg}")
 
 
 if __name__ == '__main__':
