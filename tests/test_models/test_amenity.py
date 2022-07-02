@@ -5,7 +5,7 @@ Unittest for Amenity class
 
 import unittest
 from datetime import datetime
-from models.amenity import BaseModel
+from models.base_model import BaseModel
 from models.amenity import Amenity
 
 
