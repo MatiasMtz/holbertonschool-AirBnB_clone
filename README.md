@@ -34,29 +34,29 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 
 ## ***Implemented commands***
 
-| **COMMAND** | **UTILIZATION**                                                 | **DESCRIPTION** |
-| ---         | ---                                                             | ---             |
-| **HELP**    | (hbnb) help \<command>                                          | Gives information about the selected command |
-| ‎            | ‎                                                                | ‎                |
-| **QUIT**    | ‎(hbnb) quit                                                     | Exit console.   |
-| ‎            | \<Ctrl + D>                                                     | Exit console.   |
-| ‎            | ‎                                                                | ‎                |
+| **COMMAND** | **UTILIZATION**                                                 | **DESCRIPTION**                                                                             |
+| ---         | ---                                                             | ---                                                                                         |
+| **HELP**    | (hbnb) help \<command>                                          | Gives information about the selected command                                                |
+| ‎            | ‎                                                                | ‎                                                                                            |
+| **QUIT**    | ‎(hbnb) quit                                                     | Exit console.                                                                               |
+| ‎            | \<Ctrl + D>                                                     | Exit console.                                                                               |
+| ‎            | ‎                                                                | ‎                                                                                            |
 | **CREATE**  | (hbnb) create \<class>                                          | Creates a new instance of the desired class, saves it (to the JSON file) and prints the id. |
-| ‎            | ‎                                                                | ‎                |
-| **DESTROY** | (hbnb) destroy \<class> <id>                                    | Deletes an instance based on the class name and id. |
-| ‎            | (hbnb) \<class>.destroy(\<id>)                                  | Deletes an instance based on his id. |
-| ‎            | ‎                                                                | ‎                |
-| **UPDATE**  | (hbnb) update \<class> \<id> \<attr name> "\<attr value>"       | Updates an instance based on the class name and id by adding or updating attribute. |
-| ‎            | (hbnb) \<class>.update(\<id>, \<attr name> \<attribute value>") | Updates an instance based on his ID |
-| ‎            | (hbnb) \<class>.update(\<id>, \<dict>)                          | Updates an instance based on his ID with a dictionary as it value |
-| ‎            | ‎                                                                | ‎            |
-| **ALL**     | (hbnb) all **\***\<class>                                       | Prints all string representation of all instances based or not on the class name.|
-| ‎            | (hbnb) \<class>.all()                                           | Retrieves all instances of a class. |
-| ‎            | ‎                                                                | ‎            |
-| **SHOW**    | (hbnb) show \<class> \<id>                                      | Prints the string representation of an instance based on the class name and id. |
-| ‎            | (hbnb) \<class>.show(\<id>)                                     | Retrieves an instance based on its ID. |
-| ‎            | ‎                                                                | ‎            |
-| **COUNT**   | \<class>.count()                                                | Retrieves the number of instances of a class. |
+| ‎            | ‎                                                                | ‎                                                                                            |
+| **DESTROY** | (hbnb) destroy \<class> <id>                                    | Deletes an instance based on the class name and id.                                         |
+| ‎            | (hbnb) \<class>.destroy(\<id>)                                  | Deletes an instance based on his id.                                                        |
+| ‎            | ‎                                                                | ‎                                                                                            |
+| **UPDATE**  | (hbnb) update \<class> \<id> \<attr name> "\<attr value>"       | Updates an instance based on the class name and id by adding or updating attribute.         |
+| ‎            | (hbnb) \<class>.update(\<id>, \<attr name> \<attribute value>") | Updates an instance based on his ID                                                         |
+| ‎            | (hbnb) \<class>.update(\<id>, \<dict>)                          | Updates an instance based on his ID with a dictionary as it value                           |
+| ‎            | ‎                                                                | ‎                                                                                            |
+| **ALL**     | (hbnb) all **\***\<class>                                       | Prints all string representation of all instances based or not on the class name.           |
+| ‎            | (hbnb) \<class>.all()                                           | Retrieves all instances of a class.                                                         |
+| ‎            | ‎                                                                | ‎                                                                                            |
+| **SHOW**    | (hbnb) show \<class> \<id>                                      | Prints the string representation of an instance based on the class name and id.             |
+| ‎            | (hbnb) \<class>.show(\<id>)                                     | Retrieves an instance based on its ID.                                                      |
+| ‎            | ‎                                                                | ‎                                                                                            |
+| **COUNT**   | \<class>.count()                                                | Retrieves the number of instances of a class.                                               |
 
 References:
 
