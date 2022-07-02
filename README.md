@@ -14,7 +14,7 @@ and destroying them.
 - How to write and read a JSON file
 - How to implement modules such as datetime, UUID, etc.
 
-### ***How to start and use the console***
+## ***How to start and use the console***
 - Clone our directory to your working space:
 ```bash
 git clone https://github.com/MatiasMtz/holbertonschool-AirBnB_clone.git
