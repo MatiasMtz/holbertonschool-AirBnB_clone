@@ -24,13 +24,13 @@ class HBNBCommand(cmd.Cmd):
     Entry point of the command interpreter
     """
 
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_quit(self, arg=0):
         """Quit command to exit the program
         """
 
-        sys.exit(arg)
+        sys.exit()
 
     def do_EOF(self, arg):
         """Terminates the program Usage: ctrl+D or writting EOF
@@ -159,6 +159,7 @@ Usage: update <class name> <id> <attribute name> "<attribute value>"
         <class name>.count() - to retrieve the number of instances of a class
         <class name>.show(<id>) - to retrieve an instance based on its ID
         <class name>.destroy(<id>) - to destroy an instance based on his ID
+        <class name>.update(<id>, <attribute name>, <attribute value>)
         """
 
         count = 0
