@@ -1,45 +1,71 @@
 #!/usr/bin/python3
 """
-Unit Test for BaseModel Class
+Unittest for BaseModel class
 """
+
 import unittest
 from datetime import datetime
-import models
-
-BaseModel = models.base_model.BaseModel
+from models.base_model import BaseModel
 
 
-class TestBaseModelInstances(unittest.TestCase):
-    """testing for class instances"""
+class test_base_model(unittest.TestCase):
+    """
+    Unittest for BaseModel class
+    """
 
-    def setUp(self):
-        """creates a new instance for testing"""
-        self.model = BaseModel()
+    def test_docstring(self):
+        """
+        Test if the clas has a docstring
+        """
 
-    def test_instantiation(self):
-        """checks if BaseModel is properly instantiated"""
-        self.assertIsInstance(self.model, BaseModel)
+        self.assertIsNotNone(BaseModel.__doc__)
 
-    def test_save(self):
-        """save function should update updated_at attribute"""
-        self.model.save()
-        actual = type(self.model.updated_at)
-        expected = type(datetime.now())
-        self.assertEqual(expected, actual)
+    def test_basemodel(self):
+        """
+        Test the instanitation of a new instance
+        of base model and its methods
+        """
+        
+        """
+        Instanitation
+        """
 
-    def test_name_attribute(self):
-        """add name attribute"""
-        self.model.name = "Holberton"
-        actual = self.model.name
-        expected = "Holberton"
-        self.assertEqual(expected, actual)
+        base_model = BaseModel()
+        update = base_model.updated_at
+        self.assertEqual(isinstance(base_model, BaseModel), True)
 
-    def test_number_attribute(self):
-        """add number attribute"""
-        self.model.number = 98
-        actual = self.model.number
-        self.assertTrue(98 == actual)
+        self.assertIsNotNone(base_model.id)
+        self.assertIsNotNone(base_model.created_at)
+        self.assertIsNotNone(base_model.updated_at)
+
+        self.assertEqual(type(base_model.id), str)
+        self.assertEqual(type(base_model.created_at), datetime)
+        self.assertEqual(type(base_model.updated_at), datetime)
+        
+        """
+        str method
+        """
+
+        string = f"[BaseModel] ({base_model.id}) {base_model.__dict__}"
+        self.assertEqual(str(base_model), string)
+        
+        """
+        save method
+        """
+
+        self.assertEqual(update, base_model.updated_at)
+        base_model.save()
+        self.assertNotEqual(update, base_model.updated_at)
+
+        """
+        to_dict method
+        """
+
+        test_dict = base_model.to_dict()
+        self.assertEqual(type(test_dict), dict)
+        self.assertEqual(type(test_dict["created_at"]), str)
+        self.assertEqual(type(test_dict["updated_at"]), str)
 
 
 if __name__ == '__main__':
-    unittest
+    unittest.main()
