@@ -60,9 +60,8 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 
 #### References:
 
-- Implemented classes (\<class>).
-BaseModel, User, Place, State, City, Amenity, Review.
-- \* Optional argument.
+- Implemented classes (\<class>) - BaseModel, User, Place, State, City, Amenity, Review.
+- \* - Optional argument.
 
 ## ***Examples***:
 ```
