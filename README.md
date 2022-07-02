@@ -2,7 +2,7 @@
 
 # 0x00. AirBnB clone - The console
 
-![Holberton AirBnB](https://postimg.cc/HJjLY1PD)
+![Holberton AirBnB](https://i.postimg.cc/43QH1J6d/65f4a1dd9c51265f49d0.png)
 
 ## ***About this project***
 This is the first step of our first full web application: the AirBnB clone. Our console is able to work in interactive mode 
