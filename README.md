@@ -2,6 +2,8 @@
 
 # 0x00. AirBnB clone - The console
 
+![Holberton AirBnB](https://i.postimg.cc/43QH1J6d/65f4a1dd9c51265f49d0.png)
+
 ## ***About this project***
 This is the first step of our first full web application: the AirBnB clone. Our console is able to work in interactive mode 
 but also in non-interactive mode. It main goal is to manage the AirBnB objects. It is capable of creating new objects, 
@@ -14,7 +16,7 @@ and destroying them.
 - How to write and read a JSON file
 - How to implement modules such as datetime, UUID, etc.
 
-### ***How to start and use the console***
+## ***How to start and use the console***
 - Clone our directory to your working space:
 ```bash
 git clone https://github.com/MatiasMtz/holbertonschool-AirBnB_clone.git
@@ -58,11 +60,10 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 | ‎            | ‎                                                                | ‎                                                                                            |
 | **COUNT**   | \<class>.count()                                                | Retrieves the number of instances of a class.                                               |
 
-References:
+#### References:
 
-| \<class> | BaseModel | User      | Place     | State     | City      | Amenity   | Review    | 
-| :-: | --- | --- | --- | --- | --- | --- | --- |
-| Description |
+- Implemented classes (\<class>) - BaseModel, User, Place, State, City, Amenity, Review.
+- \* - Optional argument.
 
 ## ***Examples***:
 ```
