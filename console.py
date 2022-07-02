@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
     Entry point of the command interpreter
     """
 
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
 
     def do_quit(self, arg=0):
         """Quit command to exit the program
