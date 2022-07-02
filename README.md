@@ -2,7 +2,7 @@
 
 # 0x00. AirBnB clone - The console
 
-![Holberton AirBnB](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20220702%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220702T195401Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ef32d56087201e2cc4a03801729c217656fb2bdc06033784c9895ab3fd2b2938)
+![Holberton AirBnB](https://postimg.cc/HJjLY1PD)
 
 ## ***About this project***
 This is the first step of our first full web application: the AirBnB clone. Our console is able to work in interactive mode 
