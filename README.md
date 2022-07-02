@@ -58,18 +58,11 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 | ‎            | ‎                                                                | ‎                                                                                            |
 | **COUNT**   | \<class>.count()                                                | Retrieves the number of instances of a class.                                               |
 
-References:
+#### References:
 
-- Implemented classes (\<class>)
-<ol>
-    <li>BaseModel</li>
-    <li>User</li>
-    <li>Place</li>
-    <li>State</li>
-    <li>City</li>
-    <li>Amenity</li>
-    <li>Review</li>
-</ol>
+- Implemented classes (\<class>).
+BaseModel, User, Place, State, City, Amenity, Review.
+- \* Optional argument.
 
 ## ***Examples***:
 ```
