@@ -60,9 +60,18 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 
 References:
 
-| \<class> | BaseModel | User      | Place     | State     | City      | Amenity   | Review    | 
-| :-: | --- | --- | --- | --- | --- | --- | --- |
-| Description |
+<ol>
+    <li>Classes</li>
+    <ol>
+        <li>BaseModel</li>
+        <li>User</li>
+        <li>Place</li>
+        <li>State</li>
+        <li>City</li>
+        <li>Amenity</li>
+        <li>Review</li>
+    </ol>
+</ol> 
 
 ## ***Examples***:
 ```
