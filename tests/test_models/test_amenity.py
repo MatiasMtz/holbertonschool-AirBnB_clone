@@ -16,7 +16,7 @@ class test_amenity(unittest.TestCase):
 
     def test_docstring(self):
         """
-        Test if the clas has a docstring
+        Test if the class has a docstring
         """
 
         self.assertIsNotNone(Amenity.__doc__)
