@@ -30,7 +30,6 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program
         """
 
-        print()
         sys.exit()
 
     def do_EOF(self, arg):
@@ -46,18 +45,20 @@ class HBNBCommand(cmd.Cmd):
 
         pass
 
-    def do_create(self, cls_name):
+    def do_create(self, arg):
         """Creates a new instance of class and prints the id.
 
 Usage: create <class name>
         """
 
-        if cls_name == "":
+        args = shlex.split(arg)
+        
+        if args == []:
             print("** class name missing **")
-        elif cls_name not in classes:
+        elif args[0] not in classes:
             print("** class doesn't exist **")
         else:
-            new = eval(cls_name)()
+            new = eval(args[0])()
             new.save()
             print(new.id)
 
