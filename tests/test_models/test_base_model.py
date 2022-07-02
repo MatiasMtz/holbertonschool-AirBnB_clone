@@ -15,7 +15,7 @@ class test_base_model(unittest.TestCase):
 
     def test_docstring(self):
         """
-        Test if the clas has a docstring
+        Test if the class has a docstring
         """
 
         self.assertIsNotNone(BaseModel.__doc__)
