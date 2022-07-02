@@ -116,6 +116,7 @@ Usage: all <class name> - to print all instances of a class\
         if args:
             if args[0] not in classes:
                 print("** class doesn't exist **")
+                return
             inst_list = []
             for key in storage.all():
                 cls_name = key.split(".")[0]
