@@ -52,10 +52,6 @@ Usage: create <class name>
         """
 
         args = shlex.split(arg)
-<<<<<<< HEAD
-=======
-
->>>>>>> 20a88ee4b64cf0e91ec54e7b4c0e3f3e457d0f09
         if args == []:
             print("** class name missing **")
         elif args[0] not in classes:
