@@ -60,7 +60,7 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 
 References:
 
--\<class>
+- Implemented classes (\<class>)
 <ol>
     <li>BaseModel</li>
     <li>User</li>
