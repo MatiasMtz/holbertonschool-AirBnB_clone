@@ -24,7 +24,7 @@ git clone https://github.com/MatiasMtz/holbertonschool-AirBnB_clone.git
 ./console.py
 ```
 - Type your commands: 
-```bash
+```
 ex.: (hbnb) create BaseModel
 ```
 - If you want to work in non-interactive mode:
@@ -41,7 +41,7 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 | QUIT | ‎ |
 | --- | ---------------------------------------------------------------------------------------------|
 | (hbnb) quit | Exit console. |
-| \<CTRL D> | Exit console. |
+| \<Ctrl + D> | Exit console. |
 
 | CREATE | ‎ |
 | --- | ---------------------------------------------------------------------------------------------|
@@ -59,7 +59,7 @@ ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 
 | SHOW | ‎ |
 | -------------------- | ---------------------------------------------------------------------------------------------|
-| (hbnb) show \<class> \<id>    | Prints the string representation of an instance based on the class name and id.  |
+| (hbnb) show \<class> \<id>    | Prints the string representation of an instance based on the class name and id. ‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎|
 | (hbnb) \<class>.show(\<id>)   | Retrieves an instance based on its ID.                                                       |
 
 | UPDATE | ‎ |
