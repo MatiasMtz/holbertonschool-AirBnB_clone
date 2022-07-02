@@ -6,7 +6,7 @@
 This is the first step of our first full web application: the AirBnB clone. Our console is able to work in interactive mode 
 but also in non-interactive mode. It main goal is to manage the AirBnB objects. It is capable of creating new objects, 
 retrieving an object from a file, doing operations on objects like counting and computing stats, updating attributes of an object
-and destroying an object.
+and destroying them.
 ## ***Learning objectives of this project***
 - How to create a Python package
 - How to create a command interpreter in Python using the cmd module
@@ -14,7 +14,7 @@ and destroying an object.
 - How to write and read a JSON file
 - How to implement modules such as datetime, UUID, etc.
 
-### ***How to use***
+### ***How to start and use the console***
 - Clone our directory to your working space:
 ```bash
 git clone https://github.com/MatiasMtz/holbertonschool-AirBnB_clone.git
@@ -29,7 +29,7 @@ ex.: (hbnb) create BaseModel
 ```
 - If you want to work in non-interactive mode:
 ```bash
-**COMPLETAR**
+ex.: maxmat@ubuntu:~/AirBnB_clone$ echo "<command>" | ./console.py
 ```
 
 ## ***Implemented commands***
@@ -80,7 +80,7 @@ References:
 
 ## ***Examples***:
 ```
-maxmat@ubuntu:~/AirBnB$ ./console.py
+maxmat@ubuntu:~/AirBnB_clone$$ ./console.py
 ```
 - Help
 ```
@@ -99,7 +99,7 @@ Quit command to exit the program
 - Quit
 ```
 (hbnb) quit 
-maxmat@ubuntu:~/AirBnB$ 
+maxmat@ubuntu:~/AirBnB_clone$$ 
 ```
 - Create
 ```
@@ -151,7 +151,10 @@ d06a167f-9a53-4a45-b61a-0e2851381f75a
 ```
 - Count
 ```
-**COMPLETAR**
+(hbnb) User.count()
+1
+(hbnb) all User
+["[User] (c7af570f-6645-4a3f-80cf-be57027ac165) {'id': 'c7af570f-6645-4a3f-80cf-be57027ac165', 'created_at': datetime.datetime(2022, 7, 2, 20, 6, 3, 343076), 'updated_at': datetime.datetime(2022, 7, 2, 20, 6, 3, 343084)}"]
 ```
 
 ### ***Authors***
