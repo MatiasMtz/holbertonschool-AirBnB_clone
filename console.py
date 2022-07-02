@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         """Terminates the program Usage: ctrl+D or writting EOF
         """
 
-        return True
+        sys.exit()
 
     def emptyline(self):
         """
