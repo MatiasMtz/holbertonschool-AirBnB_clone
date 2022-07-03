@@ -20,7 +20,6 @@ class TestFileStorage(unittest.TestCase):
         """ Test that checks the all method. """
         self.assertEqual(type(object), dict)
         self.assertTrue(hasattr(F_storage, 'all'), True)
-        #self.assertIs(object, storage.FileStorageobjects)
 
     def test_new(self):
         """ Test that checks the new method. """
@@ -31,9 +30,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         """ Test that checks the save method. """
-        #self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(F_storage, 'save'), True)
-        #self.assertEqual(os.path.isfile('file.json'), True)
         self.assertGreater(B_model.updated_at, B_model.created_at)
 
     def test_reload(self):
@@ -63,6 +60,14 @@ class TestFileStorage(unittest.TestCase):
         os.remove("file.json")
         FileStorage._FileStorage__objects = {}
         self.assertEqual(storage.all(), {})
+
+    def test_save_create(self):
+        """ Save  """
+        obj = BaseModel()
+        obj_key = 'BaseModel' + '.' + obj.id
+        
+        self.assertEqual(obj, storage.all()[obj_key])
+       
 
 if __name__ == '__main__':
     unittest.main()
