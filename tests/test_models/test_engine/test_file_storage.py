@@ -45,6 +45,17 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(FileStorage.__doc__)
         self.assertEqual(type(FileStorage()), FileStorage)
 
+    def test_documentation(self):  
+        """
+        tests for module, class, & method documentation.
+        """
+
+        self.assertTrue(len(FileStorage.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.all.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.new.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.save.__doc__) >= 1)
+        self.assertTrue(len(FileStorage.reload.__doc__) >= 1)
+
 
 if __name__ == '__main__':
     unittest.main()
