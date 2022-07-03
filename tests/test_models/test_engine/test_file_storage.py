@@ -12,13 +12,6 @@ class test_file_storage(unittest.TestCase):
         self.my_model = BaseModel()
         self.fisto = FileStorage()
 
-    def test_file_storage_doc(self):
-        """ Check the documentation """
-        self.assertIsNotNone(FileStorage.all.__doc__)
-        self.assertIsNotNone(FileStorage.new.__doc__)
-        self.assertIsNotNone(FileStorage.save.__doc__)
-        self.assertIsNotNone(FileStorage.reload.__doc__)
-
     def test_fiel_storage_exist(self):
         """ Check if methods exists """
         self.assertTrue(hasattr(self.fisto, "all"))
