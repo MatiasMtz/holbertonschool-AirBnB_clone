@@ -19,7 +19,18 @@ class FileStorage(unittest.TestCase):
         """
         Test if the class has a docstring
         """
-        self.assertIsNotNone(FileStorage.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage.
+                             all.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage.
+                             __init__.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage.
+                             new.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage.
+                             save.__doc__)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage.
+                             reload.__doc__)
 
     def test_file_storage(self):
         """
