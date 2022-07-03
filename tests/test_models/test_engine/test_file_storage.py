@@ -1,82 +1,53 @@
-#!/usr/bin/env python3
-"""
-Unitest for the FileStorage class
-"""
-import unittest
-import models
+#!/usr/bin/python3
+"""Module for testing the file storage model"""
+import json
 import os
-from models.engine.file_storage import FileStorage
+import unittest
+from datetime import datetime
 from models.base_model import BaseModel
-from models.user import User
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.place import Place
-from models.review import Review
+from models.engine.file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
+    """Test file storage class"""
+    def test_creation(self):
+        """Test creation of file storage and attributes"""
+        new_fs = FileStorage()
+        self.assertEqual(type(new_fs), FileStorage)
+        """ not valid private attributes
+        self.assertEqual(type(new_fs.__file_path), str)
+        self.assertEqual(type(new_fs.__objects), dict)
+        """
 
-    def test_doc(self):
-        """claass ann method docstrings"""
+    def test_documentation(self):
+        """Tests the documentation of file storage and methods"""
+        new_fs = FileStorage()
+        self.assertNotEqual(len(new_fs.__doc__), 0)
+        self.assertNotEqual(len(new_fs.all.__doc__), 0)
+        self.assertNotEqual(len(new_fs.new.__doc__), 0)
+        self.assertNotEqual(len(new_fs.save.__doc__), 0)
+        self.assertNotEqual(len(new_fs.reload.__doc__), 0)
 
-        self.assertIsNotNone(models.engine.file_storage.FileStorage.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.FileStorage.
-                             all.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.FileStorage.
-                             __init__.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.FileStorage.
-                             new.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.FileStorage.
-                             save.__doc__)
-        self.assertIsNotNone(models.engine.file_storage.FileStorage.
-                             reload.__doc__)
+    def test_methods(self):
+        """Test methods of file storage model"""
+        new_fs = FileStorage()
+        """
+    
+        """
+        new_bm = BaseModel()
+        self.assertEqual(type(new_fs.all()), dict)
+        self.assertNotEqual(len(new_fs.all()), 0)
+        self.assertEqual(new_fs.new(new_bm), None)
+        self.assertEqual(FileStorage.save(self), None)
+        self.assertEqual(FileStorage.reload(self), None)
 
-    def test_classes(self):
-        """check if classes are created"""
+        aux_dict = new_fs.all()
+        self.assertEqual(new_fs.new(BaseModel()), None)
+        aux_dict2 = new_fs.all()
 
-        self.assertIsInstance(models.engine.file_storage.FileStorage(),
-                              models.engine.file_storage.FileStorage)
-
-    def test_all(self):
-        """check if all method is working"""
-
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().all)
-
-    def test_new(self):
-        """check if new method is working"""
-
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().new)
-
-    def test_save(self):
-        """check if save method is working"""
-
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().save)
-
-    def test_reload(self):
-        """check if reload method is working"""
-
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
-
-    def test_all_method(self):
-        """check if all method is working"""
-
-        self.assertIsNotNone(models.engine.file_storage.FileStorage().all())
-
-    def test_models_all(self):
-        """check if all method is working"""
-
-        self.assertIsNotNone(models.storage.all())
-
-    def test_empty(self):
-        """test if json is empty or not"""
-        new = BaseModel()
-        conten = new.to_dict()
-        new.save()
-        new2 = BaseModel(**conten)
-        self.assertNotEqual(os.path.getsize("file.json"), 0)
+        self.assertEqual(new_fs.save(), None)
+        self.assertEqual(new_fs.reload(), None)
 
 
-if __name__ == '__main__':
-    unittest.main()
+    if __name__ == '__main__':
+        unittest.main()
