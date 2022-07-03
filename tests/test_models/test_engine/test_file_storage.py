@@ -1,34 +1,50 @@
 #!/usr/bin/python3
+"""
+Unittest for file_storage([..])
+"""
+import models
+import os.path
 import unittest
-from models.engine.file_storage import FileStorage
-from models.__init__ import storage
+from models import storage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+
+F_storage = FileStorage()
+B_model = BaseModel()
+object = storage.all()
 
 
-class test_file_storage(unittest.TestCase):
+class TestFileStorage(unittest.TestCase):
+    """ Write unittests for the class FileStorage. """
+    def test_all(self):
+        """ Test that checks the all method. """
+        self.assertEqual(type(object), dict)
+        self.assertTrue(hasattr(F_storage, 'all'), True)
+        #self.assertIs(object, storage.FileStorageobjects)
 
-    def setUp(self):
-        """ Set a variable """
-        self.my_model = BaseModel()
-        self.fisto = FileStorage()
+    def test_new(self):
+        """ Test that checks the new method. """
+        B_model.name = 'Da_Sa'
+        self.assertEqual(B_model.name, 'Da_Sa')
+        self.assertTrue(hasattr(storage, 'new'), True)
+        self.assertEqual(type(B_model), models.base_model.BaseModel)
 
-    def test_fiel_storage_exist(self):
-        """ Check if methods exists """
-        self.assertTrue(hasattr(self.fisto, "all"))
-        self.assertTrue(hasattr(self.fisto, "new"))
-        self.assertTrue(hasattr(self.fisto, "save"))
-        self.assertTrue(hasattr(self.fisto, "reload"))
+    def test_save(self):
+        """ Test that checks the save method. """
+        self.assertTrue(os.path.isfile('file.json'))
+        self.assertTrue(hasattr(F_storage, 'save'), True)
+        self.assertEqual(os.path.isfile('file.json'), True)
+        self.assertGreater(B_model.updated_at, B_model.created_at)
 
-    def test_models_save(self):
-        """ Check if the save function works """
-        self.my_model.name = "Obi"
-        self.my_model.save()
-        storage.reload()
-        storage.all()
-        self.assertTrue(storage.all(), "Obi")
-        self.assertTrue(hasattr(self.my_model, 'save'))
-        self.assertNotEqual(self.my_model.created_at,
-                            self.my_model.updated_at)
+    def test_reload(self):
+        """ Test that checks the reload method. """
+        self.assertTrue(hasattr(F_storage, 'reload'), True)
+
+    def test_FileStorage_empty(self):
+        """ Test that checks the empty FileStorage. """
+        self.assertIsNotNone(FileStorage.__doc__)
+        self.assertEqual(type(FileStorage()), FileStorage)
+
 
 if __name__ == '__main__':
     unittest.main()
