@@ -17,19 +17,7 @@ class test_storage(unittest.TestCase):
     """ check the class """
 
     def setUp(self):
-        """ check empty """
-        try:
-            remove('file.json')
-        except Exception:
-            pass
         FileStorage._FileStorage__objects = {}
-
-    def tearDown(self):
-        """ check remove class """
-        try:
-            remove('file.json')
-        except Exception:
-            pass
 
     def test_no_objs(self):
         """ check empty class  """
@@ -126,25 +114,6 @@ class test_storage(unittest.TestCase):
         storage.save()
 
         self.assertTrue(path.isfile('file.json'))
-        FileStorage._FileStorage__objects = {}
-
-        storage.reload()
-
-        self.assertTrue(obj_key in storage.all().keys())
-        self.assertEqual(obj.id, storage.all()[obj_key].id)
-        self.assertTrue(obj1_key in storage.all().keys())
-        self.assertEqual(obj1.id, storage.all()[obj1_key].id)
-        self.assertTrue(obj2_key in storage.all().keys())
-        self.assertEqual(obj2.id, storage.all()[obj2_key].id)
-        self.assertTrue(obj3_key in storage.all().keys())
-        self.assertEqual(obj3.id, storage.all()[obj3_key].id)
-        self.assertTrue(obj4_key in storage.all().keys())
-        self.assertEqual(obj4.id, storage.all()[obj4_key].id)
-        self.assertTrue(obj5_key in storage.all().keys())
-        self.assertEqual(obj5.id, storage.all()[obj5_key].id)
-        self.assertTrue(obj6_key in storage.all().keys())
-        self.assertEqual(obj6.id, storage.all()[obj6_key].id)
-
-
+        
     if __name__ == '__main__':
         unittest.main()
