@@ -4,7 +4,6 @@ Unittest for User class
 """
 
 import unittest
-from datetime import datetime
 from models.base_model import BaseModel
 from models.user import User
 

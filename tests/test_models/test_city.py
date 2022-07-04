@@ -4,7 +4,6 @@ Unittest for City class
 """
 
 import unittest
-from datetime import datetime
 from models.city import BaseModel
 from models.city import City
 

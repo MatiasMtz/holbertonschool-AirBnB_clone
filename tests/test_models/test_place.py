@@ -4,7 +4,6 @@ Unittest for Place class
 """
 
 import unittest
-from datetime import datetime
 from models.place import BaseModel
 from models.place import Place
 
