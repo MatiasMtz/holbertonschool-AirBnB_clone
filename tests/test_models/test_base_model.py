@@ -6,7 +6,6 @@ Unittest for BaseModel class
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
-import pep8
 
 
 class test_base_model(unittest.TestCase):
@@ -26,17 +25,6 @@ class test_base_model(unittest.TestCase):
         Test the instanitation of a new instance
         of base model and its methods
         """
-
-    def testpep8(self):
-        """
-        Test codestyle
-        """
-        pepstylecode = pep8.StyleGuide(quiet=True)
-        rest = pepstylecode.check_files(['models/base_model.py',
-                                         'models/init.py',
-                                         'models/engine/file_storage.py'])
-        self.assertEqual(rest.total_errors, 0,
-                         "Found code style errors (and warnings).")
 
         """
         Instanitation
