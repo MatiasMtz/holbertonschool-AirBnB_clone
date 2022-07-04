@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Unittest for file_storage([..])
+Unittest for FileStorage class
 """
+
 import models
 import os
 import unittest
@@ -15,42 +16,58 @@ from models.place import Place
 from models.review import Review
 from models.amenity import Amenity
 
-F_storage = FileStorage()
-B_model = BaseModel()
+file_storage = FileStorage()
+base_model = BaseModel()
 object = storage.all()
 
 
-class TestFileStorage(unittest.TestCase):
-    """ Write unittests for the class FileStorage. """
+class test_file_storage(unittest.TestCase):
+    """ 
+    Write unittests for the class FileStorage. """
     def test_all(self):
-        """ Test that checks the all method. """
+        """
+        Test that checks the all method.
+        """
+
         self.assertEqual(type(object), dict)
-        self.assertTrue(hasattr(F_storage, 'all'), True)
+        self.assertTrue(hasattr(file_storage, 'all'), True)
 
     def test_new(self):
-        """ Test that checks the new method. """
-        B_model.name = 'Da_Sa'
-        self.assertEqual(B_model.name, 'Da_Sa')
+        """
+        Test that checks the new method.
+        """
+
+        base_model.name = 'Betty'
+        self.assertEqual(base_model.name, 'Betty')
         self.assertTrue(hasattr(storage, 'new'), True)
-        self.assertEqual(type(B_model), models.base_model.BaseModel)
+        self.assertEqual(type(base_model), models.base_model.BaseModel)
 
     def test_save(self):
-        """ Test that checks the save method. """
-        self.assertTrue(hasattr(F_storage, 'save'), True)
-        self.assertGreater(B_model.updated_at, B_model.created_at)
+        """
+        Test that checks the save method.
+        """
+
+        self.assertTrue(hasattr(file_storage, 'save'), True)
+        self.assertGreater(base_model.updated_at, base_model.created_at)
 
     def test_reload(self):
-        """ Test that checks the reload method. """
-        self.assertTrue(hasattr(F_storage, 'reload'), True)
+        """
+        Test that checks the reload method.
+        """
+
+        self.assertTrue(hasattr(file_storage, 'reload'), True)
 
     def test_FileStorage_empty(self):
-        """ Test that checks the empty FileStorage. """
+        """
+        Test that checks the empty FileStorage.
+        """
+
         self.assertIsNotNone(FileStorage.__doc__)
         self.assertEqual(type(FileStorage()), FileStorage)
 
     def test_documentation(self):  
         """
-        tests for module, class, & method documentation.
+        Tests for module, class, & method documentation.
         """
 
         self.assertTrue(len(FileStorage.__doc__) >= 1)
@@ -61,8 +78,9 @@ class TestFileStorage(unittest.TestCase):
 
     def test_no_objs(self):
         """
-        check empty class
+        Check empty class
         """
+
         os.remove("file.json")
         FileStorage._FileStorage__objects = {}
         self.assertEqual(storage.all(), {})

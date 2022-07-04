@@ -26,11 +26,9 @@ class test_amenity(unittest.TestCase):
         Test the instanitation of a new instance
         of Amenity and its methods
         """
-        
         """
         Instanitation
         """
-
         amenity = Amenity()
         update = amenity.updated_at
 
@@ -64,8 +62,7 @@ class test_amenity(unittest.TestCase):
         self.assertEqual(type(test_dict), dict)
         self.assertEqual(type(test_dict["created_at"]), str)
         self.assertEqual(type(test_dict["updated_at"]), str)
-        
+
 
 if __name__ == '__main__':
     unittest.main()
-    

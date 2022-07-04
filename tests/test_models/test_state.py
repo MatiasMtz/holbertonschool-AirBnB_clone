@@ -27,7 +27,6 @@ class test_state(unittest.TestCase):
         Test the instanitation of a new instance
         of State and its methods
         """
-        
         """
         Instanitation
         """
@@ -65,8 +64,7 @@ class test_state(unittest.TestCase):
         self.assertEqual(type(test_dict), dict)
         self.assertEqual(type(test_dict["created_at"]), str)
         self.assertEqual(type(test_dict["updated_at"]), str)
-        
+
 
 if __name__ == '__main__':
     unittest.main()
-    

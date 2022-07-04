@@ -26,7 +26,6 @@ class test_review(unittest.TestCase):
         Test the instanitation of a new instance
         of Review and its methods
         """
-        
         """
         Instanitation
         """
@@ -70,8 +69,7 @@ class test_review(unittest.TestCase):
         self.assertEqual(type(test_dict), dict)
         self.assertEqual(type(test_dict["created_at"]), str)
         self.assertEqual(type(test_dict["updated_at"]), str)
-        
+
 
 if __name__ == '__main__':
     unittest.main()
-    
